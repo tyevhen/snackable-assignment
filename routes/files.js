@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var fileService = require('../services/file');
+var getFileData = require('../services/file').getFileData;
 
 router.get('/:fileId', function(req, res, next) {
-  const data = fileService.getFileData(req.params.fileId);
+  const data = getFileData(req.params.fileId);
   data.then(
     resp => {
       res.send(resp);
