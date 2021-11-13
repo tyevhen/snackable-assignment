@@ -5,9 +5,9 @@ async function getFileData(fileId) {
   let files = [];
 
   // Check if file info was cached already. If true: return right away.
-  const cacheFile = await cache.get(fileId);
-  if (cacheFile) {
-    return JSON.parse(cacheFile);
+  const cachedFileData = await cache.get(fileId);
+  if (cachedFileData) {
+    return JSON.parse(cachedFileData);
   } else {
     files = await getAllFiles();
     const file = files.filter(file => file.fileId === fileId)[0];
